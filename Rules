@@ -13,6 +13,24 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+preprocess do
+  def mangle(email)
+    sp = '<span class="nospam">&#9251;</span>'
+    email.gsub(/[@.]/, "#{sp}\\0#{sp}")
+  end
+  config[:site] = begin
+    h = {}
+    h[:author] = 'Kana Natsuno'
+    h[:email] = mangle("kana\100whileimautomaton.net")
+    h[:domain] = 'whileimautomaton.net'
+    h[:name] = 'while ("im automaton");'
+    h[:prefix] = "http://#{h[:domain]}"
+    h[:signature] = "#{h[:author]} &lt;#{h[:email]}&gt;"
+    h[:uri] = "#{h[:prefix]}/"
+    h
+  end
+end
+
 compile '/stylesheet/' do
   # don’t filter or layout
 end
@@ -23,6 +41,7 @@ compile '*' do
   else
     case item[:extension]
     when 'md'
+      filter :erb
       filter :kramdown
     else
       filter :erb

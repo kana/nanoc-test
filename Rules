@@ -29,7 +29,7 @@ compile '*' do
     case item[:extension]
     when 'md'
       filter :erb
-      filter :kramdown
+      filter :kramdown, :input => 'GFM', :hard_wrap => false
     else
       filter :erb
     end

@@ -41,6 +41,10 @@ route '/stylesheet/' do
   '/style.css'
 end
 
+route '/' do
+  '/index.html'
+end
+
 route '*' do
   if item.binary?
     # /foo/ => /foo.ext

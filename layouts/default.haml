@@ -1,0 +1,28 @@
+!!! XML
+!!! 1.1
+%html{'xml:lang' => 'en'}
+  %head
+    %title
+      - if item.identifier == '/'
+        = config[:site][:name]
+      - else
+        = item[:title]
+        = " - #{config[:site][:name]}"
+    -# FIXME: RSS feed for the latest topics.
+    %link{rel: 'stylesheet', href: '/style.css'}
+    -# FIXME: link-relation-snippet
+  %body{id: "#{config[:site][:domain]}"}
+    #header
+      %h1
+        %a{href: "#{config[:site][:uri]}"}= config[:site][:name]
+      -# FIXME: #navi
+    #body
+      = yield
+      -# FIXME: DISQUS
+    #footer
+      - if item.identifier != '/'
+        .mtime
+          Last updated:
+          = item[:mtime]
+      %address
+        Copyright &#169; 2002-2014 #{config[:site][:signature]}

@@ -16,11 +16,6 @@ recent_topics =
   .take(recent_topic_count)
 
 %>
-
 <% recent_topics.each do |t| %>
-## <%= t[:title] %>
-(<%= t[:created_at] %>)
-(<%= t[:tags] %>)
-
-<%= t.raw_content %>
+  <%= render 'topic', :item => t %>
 <% end %>

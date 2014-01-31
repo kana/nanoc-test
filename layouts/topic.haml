@@ -1,0 +1,13 @@
+.topic
+  -# FIXME: Assign ID in a month view.
+  %h2.topic-header
+    -# FIXME: Link to the permanent URI.
+    = item[:title]
+  .topic-meta
+    %span.datetime= item[:created_at]
+    %span.separator /
+    -# FIXME: Link to tag page.
+    -# FIXME: How about multiple tags?
+    %span.tags= item[:tags]
+    -# FIXME: DISQUS
+  = item.compiled_content

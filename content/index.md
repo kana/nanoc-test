@@ -10,7 +10,7 @@ created_at: 2010-02-05T23:47:29+09:00
 recent_topic_count = 5
 recent_topics =
   items
-  .select {|i| i.identifier.match %r'^/\d\d\d\d/\d\d/\d\d\d\d\d\d\d\d/$'}
+  .select(&:topic?)
   .sort_by {|i| i[:created_at]}
   .reverse
   .take(recent_topic_count)

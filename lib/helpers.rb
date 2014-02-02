@@ -4,4 +4,8 @@ class Nanoc::Item
   def topic?
     identifier.match %r'^/\d\d\d\d/\d\d/\d\d\d\d\d\d\d\d/$'
   end
+
+  def month_view?
+    identifier.match %r'^/\d+/\d+/$'
+  end
 end

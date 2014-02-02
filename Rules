@@ -31,6 +31,10 @@ compile '*' do
       :input => 'GFM',
       :hard_wrap => false,
       :auto_ids => false
+
+    if item.topic?
+      layout 'topic'
+    end
     layout 'default'
   end
 end

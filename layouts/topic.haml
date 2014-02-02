@@ -10,4 +10,4 @@
     -# FIXME: How about multiple tags?
     %span.tags= item[:tags]
     -# FIXME: DISQUS
-  = item.compiled_content
+  = if block_given? then yield else item.compiled_content end

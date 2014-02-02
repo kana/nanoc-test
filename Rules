@@ -16,6 +16,21 @@ preprocess do
     h[:uri] = "#{h[:prefix]}/"
     h
   end
+
+  topics_per_month =
+    items
+    .select(&:topic?)
+    .group_by {|i| i.identifier.match(%r{^(/\d+/\d+/)\d+/$})[1]}
+  topics_per_month.each do |id, topics|
+    items << Nanoc::Item.new(
+      "",
+      {
+        :title => id.sub(%r{/(\d+)/(\d+)/}, '\1-\2'),
+        :topics => topics,
+      },
+      id
+    )
+  end
 end
 
 compile '/stylesheet/' do
@@ -35,6 +50,9 @@ compile '*' do
     if item.topic?
       layout 'topic'
     end
+    if item.month_view?
+      layout 'month_view'
+    end
     layout 'default'
   end
 end
@@ -52,8 +70,13 @@ route '*' do
     # /foo/ => /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # /foo/ => /foo.html
-    item.identifier.chop + '.html'
+    if item.month_view?
+      # /YYYY/MM/ => /YYYY/MM/index.html
+      item.identifier + 'index.html'
+    else
+      # /foo/ => /foo.html
+      item.identifier.chop + '.html'
+    end
   end
 end
 

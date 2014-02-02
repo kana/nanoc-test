@@ -1,0 +1,2 @@
+- item[:topics].sort_by {|t| t[:created_at]}.reverse.each do |t|
+  = render 'topic', :item => t

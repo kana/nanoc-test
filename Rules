@@ -26,16 +26,11 @@ compile '*' do
   if item.binary?
     # don't filter binary items
   else
-    case item[:extension]
-    when 'md'
-      filter :erb
-      filter :kramdown,
-        :input => 'GFM',
-        :hard_wrap => false,
-        :auto_ids => false
-    else
-      filter :erb
-    end
+    filter :erb
+    filter :kramdown,
+      :input => 'GFM',
+      :hard_wrap => false,
+      :auto_ids => false
     layout 'default'
   end
 end

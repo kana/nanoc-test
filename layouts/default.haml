@@ -20,7 +20,7 @@
       = yield
       -# FIXME: DISQUS
     #footer
-      - if item.identifier != '/'
+      - if item.identifier != '/' and item[:mtime]
         .mtime
           Last updated:
           = item[:mtime]

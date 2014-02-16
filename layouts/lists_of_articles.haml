@@ -1,0 +1,10 @@
+- year_groups =
+-   topics
+-   .group_by {|i| i.identifier.match(%r{^(/\d+/\d+/)\d+/$})[1]}
+-   .group_by {|m, ts| m[1..4]}
+%dl.month-views
+  - year_groups.sort_by {|y| y}.reverse.each do |y, ms|
+    %dt= y
+    - ms.sort_by {|m| m}.reverse.each do |m, ts|
+      %dd
+        %a(href="#{m}") #{m[1..4]}-#{m[6..7]} (#{ts.count})

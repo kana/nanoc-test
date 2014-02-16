@@ -17,6 +17,8 @@
         %a{href: "#{config[:site][:uri]}"}= config[:site][:name]
       -# FIXME: #navi
     #body
+      - if not item.topic? and item[:title]
+        %h2= item[:title]
       = yield
       -# FIXME: DISQUS
     #footer

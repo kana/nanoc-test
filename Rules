@@ -51,12 +51,8 @@ compile '*' do
     :hard_wrap => false,
     :auto_ids => false
 
-  if item.topic?
-    layout 'topic'
-  end
-  if item.month_view?
-    layout 'month_view'
-  end
+  layout 'topic' if item.topic?
+  layout 'month_view' if item.month_view?
   layout 'default'
 end
 

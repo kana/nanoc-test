@@ -38,6 +38,10 @@ compile '/stylesheet/' do
   # don't filter or layout
 end
 
+compile '/rss/' do
+  filter 'haml', :format => :xhtml, :ugly => true
+end
+
 compile '*' do
   if item.binary?
     # don't filter binary items
@@ -60,6 +64,10 @@ end
 
 route '/stylesheet/' do
   '/style.css'
+end
+
+route '/rss/' do
+  '/rss.rdf'
 end
 
 route '/' do

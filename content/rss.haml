@@ -1,0 +1,24 @@
+!!! XML
+%rdf:RDF(xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:content="http://purl.org/rss/1.0/modules/content/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:h="http://www.w3.org/1999/xhtml"
+         xmlns:rss="http://purl.org/rss/1.0/"
+         xmlns="http://www.w3.org/1999/xhtml"
+         xml:lang="en")
+  %rss:channel(rdf:about="#{config[:site][:prefix]}/rss.rdf")
+    %rss:title= config[:site][:name]
+    %rss:link= config[:site][:uri]
+    %rss:description Random thoughts about software development and dolls.
+    %rss:items
+      %rdf:Seq
+        - recent_topics.each do |item|
+          %rdf:li(rdf:resource="#{item.uri}")
+  - recent_topics.each do |item|
+    %rss:item(rdf:about="#{item.uri}")
+      %rss:title= item[:title]
+      %rss:link= item.uri
+      %dc:date= item[:created_at].w3cdtf
+      %dc:subject= item[:tags]
+      -# TODO: %rss:description= item.excerpt
+      %content:encoded= html_escape(item.compiled_content)

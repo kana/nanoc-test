@@ -16,6 +16,7 @@ preprocess do
     h[:uri] = "#{h[:prefix]}/"
     h
   end
+  config[:recent_topic_count] = 5
 
   topics_per_month =
     items

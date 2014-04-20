@@ -7,13 +7,12 @@ created_at: 2010-02-05T23:47:29+09:00
 # TODO: Should use compiled_content of each topic?
 # TODO: What information should /index define?  Only parameters?
 
-recent_topic_count = 5
 recent_topics =
   items
   .select(&:topic?)
   .sort_by {|i| i[:created_at]}
   .reverse
-  .take(recent_topic_count)
+  .take(config[:recent_topic_count])
 
 %>
 <% recent_topics.each do |t| %>

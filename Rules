@@ -43,23 +43,21 @@ compile '/rss/' do
 end
 
 compile '*' do
-  if item.binary?
-    # don't filter binary items
-  else
-    filter :erb
-    filter :kramdown,
-      :input => 'GFM',
-      :hard_wrap => false,
-      :auto_ids => false
+  return if item.binary?  # Don't filter binary items.
 
-    if item.topic?
-      layout 'topic'
-    end
-    if item.month_view?
-      layout 'month_view'
-    end
-    layout 'default'
+  filter :erb
+  filter :kramdown,
+    :input => 'GFM',
+    :hard_wrap => false,
+    :auto_ids => false
+
+  if item.topic?
+    layout 'topic'
   end
+  if item.month_view?
+    layout 'month_view'
+  end
+  layout 'default'
 end
 
 route '/stylesheet/' do

@@ -15,6 +15,10 @@ class Nanoc::Item
   def uri
     @site.config[:site][:prefix] + path.sub(/\.html$/, '')
   end
+
+  def written_in?(extension)
+    raw_filename and raw_filename.end_with?(extension)
+  end
 end
 
 def recent_topics

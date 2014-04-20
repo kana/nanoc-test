@@ -45,7 +45,6 @@ end
 compile '*' do
   return if item.binary?  # Don't filter binary items.
 
-  filter :erb
   filter :kramdown,
     :input => 'GFM',
     :hard_wrap => false,

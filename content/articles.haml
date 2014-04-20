@@ -16,14 +16,17 @@ created_at: 2006-12-03T14:48:45+09:00
 
 %h3 Lists of articles
 
-- topics_per_month =
+- year_groups =
 -   items
 -   .select(&:topic?)
 -   .group_by {|i| i.identifier.match(%r{^(/\d+/\d+/)\d+/$})[1]}
-- year_groups =
--   topics_per_month
--   .group_by {|m, ts| m[0..3]}
-= render 'lists_of_articles', :topics => items.select(&:topic?)
+-   .group_by {|m, ts| m[1..4]}
+%dl.month-views
+  - year_groups.sort_by {|y| y}.reverse.each do |y, ms|
+    %dt= y
+    - ms.sort_by {|m| m}.reverse.each do |m, ts|
+      %dd
+        %a(href="#{m}") #{m[1..4]}-#{m[6..7]} (#{ts.count})
 
 
 %h3 Legacy topics

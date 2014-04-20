@@ -9,3 +9,12 @@ class Nanoc::Item
     identifier.match %r'^/\d+/\d+/$'
   end
 end
+
+def recent_topics
+  @recent_topics ||=
+    items
+    .select(&:topic?)
+    .sort_by {|i| i[:created_at]}
+    .reverse
+    .take(config[:recent_topic_count])
+end

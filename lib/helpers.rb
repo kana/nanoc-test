@@ -1,3 +1,5 @@
+require 'rss'
+
 include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Rendering
 

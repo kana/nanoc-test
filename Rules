@@ -49,7 +49,10 @@ compile '*' do
   filter :kramdown,
     :input => 'GFM',
     :hard_wrap => false,
-    :auto_ids => false
+    :auto_ids => false if item.written_in?('.md')
+  filter 'haml',
+    :format => :xhtml,
+    :ugly => true if item.written_in?('.haml')
 
   layout 'topic' if item.topic?
   layout 'month_view' if item.month_view?

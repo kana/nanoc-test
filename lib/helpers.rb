@@ -1,3 +1,4 @@
+include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Rendering
 
 class Nanoc::Item
@@ -7,6 +8,10 @@ class Nanoc::Item
 
   def month_view?
     identifier.match %r'^/\d+/\d+/$'
+  end
+
+  def uri
+    @site.config[:site][:prefix] + path.sub(/\.html$/, '')
   end
 end
 

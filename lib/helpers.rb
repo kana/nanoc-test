@@ -17,7 +17,7 @@ class Nanoc::Item
   end
 
   def written_in?(extension)
-    raw_filename and raw_filename.end_with?(extension)
+    self[:extension] == extension
   end
 end
 

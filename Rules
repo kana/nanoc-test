@@ -35,7 +35,7 @@ preprocess do
 end
 
 compile '/rss/' do
-  filter 'haml', :format => :xhtml, :ugly => true
+  filter :haml, :format => :xhtml, :ugly => true
 end
 
 compile '*' do
@@ -46,7 +46,7 @@ compile '*' do
     :enable_coderay => false,
     :hard_wrap => false,
     :input => 'GFM' if item.written_in?('md')
-  filter 'haml',
+  filter :haml,
     :format => :xhtml,
     :ugly => true if item.written_in?('haml')
 

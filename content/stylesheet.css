@@ -99,3 +99,66 @@ a:hover {
 
   line-height: 20px;
 }
+
+/* Generated CSS for code blocks highlighted by Vim. */
+
+pre, pre * {
+  font-family: monospace;
+}
+
+pre > code .ColorColumn {background-color: darkred;}
+pre > code .Comment {color: skyblue;}
+pre > code .Conceal {color: lightgrey; background-color: darkgrey;}
+pre > code .Constant {color: #ffa0a0;}
+pre > code .Cursor {color: #000000; background-color: #99ff99;}
+pre > code .CursorColumn {background-color: #222222;}
+pre > code .CursorIM {color: #000000; background-color: #cc9999;}
+pre > code .CursorLine {background-color: #222222;}
+pre > code .CursorLineNr {font-weight: bolder; color: yellow;}
+pre > code .DiffAdd {background-color: darkblue;}
+pre > code .DiffChange {background-color: darkmagenta;}
+pre > code .DiffDelete {font-weight: bolder; color: blue; background-color: darkcyan;}
+pre > code .DiffText {font-weight: bolder; background-color: red;}
+pre > code .Directory {color: #00ffff;}
+pre > code .Error {color: white; background-color: red;}
+pre > code .ErrorMsg {color: #ffffff; background-color: #cc0000;}
+pre > code .FoldColumn {color: #666666; background-color: #111111;}
+pre > code .Folded {color: #999999; background-color: #111111;}
+pre > code .Identifier {color: palegreen;}
+pre > code .Ignore {color: grey40;}
+pre > code .IncSearch {font-weight: bolder; color: #000000; background-color: #ffcc00;}
+pre > code .LineNr {color: #666666; background-color: #111111;}
+pre > code .MatchParen {color: #000000; background-color: #339933;}
+pre > code .ModeMsg {color: #ff9900;}
+pre > code .MoreMsg {color: #000000; background-color: #66cc66;}
+pre > code .NonText {color: #3333cc; background-color: #111111;}
+pre > code .Normal, pre {color: #cccccc; background-color: #000000;}
+pre > code .Pmenu {color: #cccccc; background-color: #111111;}
+pre > code .PmenuSbar {color: #000000; background-color: #222222;}
+pre > code .PmenuSel {color: #000000; background-color: #ffcc99;}
+pre > code .PmenuThumb {color: #000000; background-color: #444444;}
+pre > code .PreProc {color: indianred;}
+pre > code .Question {color: #66ff33; background-color: #000000;}
+pre > code .Search {color: #000000; background-color: #cccc00;}
+pre > code .SignColumn {color: #000000; background-color: #111111;}
+pre > code .Special {color: navajowhite;}
+pre > code .SpecialKey {color: #66ff66; background-color: #000000;}
+pre > code .SpellBad {border-bottom: thin dashed; border-color: red;}
+pre > code .SpellCap {border-bottom: thin dashed; border-color: blue;}
+pre > code .SpellLocal {border-bottom: thin dashed; border-color: cyan;}
+pre > code .SpellRare {border-bottom: thin dashed; border-color: magenta;}
+pre > code .Statement {font-weight: bolder; color: khaki;}
+pre > code .StatusLine {font-weight: bolder; color: #000000; background-color: #666666;}
+pre > code .StatusLineNC {color: #111111; background-color: #666666;}
+pre > code .TabLine {text-decoration: underline; color: #999999; background-color: #111111;}
+pre > code .TabLineFill {text-decoration: underline; color: #999999; background-color: #111111;}
+pre > code .TabLineSel {color: #000000; background-color: #cccccc;}
+pre > code .Title {color: #000000; background-color: #cc6633;}
+pre > code .Todo {color: orangered; background-color: yellow2;}
+pre > code .Type {font-weight: bolder; color: darkkhaki;}
+pre > code .Underlined {text-decoration: underline; color: #80a0ff;}
+pre > code .VertSplit {color: #000000; background-color: #666666;}
+pre > code .Visual {font-weight: bolder; background-color: #665544;}
+pre > code .VisualNOS {font-weight: bolder; background-color: #556644;}
+pre > code .WarningMsg {color: #ffffff; background-color: #cc6600;}
+pre > code .WildMenu {color: #000000; background-color: #ffff00;}

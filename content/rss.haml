@@ -20,5 +20,5 @@
       %rss:link= item.uri
       %dc:date= item[:created_at].w3cdtf
       %dc:subject= item[:tags]
-      -# TODO: %rss:description= item.excerpt
+      -# FIXME: %rss:description= item.excerpt
       %content:encoded= html_escape(item.compiled_content)

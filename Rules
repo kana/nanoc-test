@@ -43,7 +43,7 @@ compile '/rss/' do
 end
 
 compile '*' do
-  next if item.binary?  # Don't filter binary items.
+  next if item.binary? or item.written_in?('css')
 
   filter :kramdown,
     :input => 'GFM',
@@ -72,7 +72,8 @@ end
 
 route '*' do
   # /foo/ => /foo.ext
-  next item.identifier.chop + '.' + item[:extension] if item.binary?
+  next item.identifier.chop + '.' + item[:extension] if
+    item.binary? or item.written_in?('css')
 
   # /YYYY/MM/ => /YYYY/MM/index.html
   next item.identifier + 'index.html' if item.month_view?

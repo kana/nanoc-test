@@ -8,7 +8,8 @@
       - else
         = item[:title]
         = " - #{config[:site][:name]}"
-    -# FIXME: RSS feed for the latest topics.
+    %link{rel: 'alternate', type: 'application/rss+xml', href: '/rss.rdf',
+          title: 'RSS feed for the latest topics.'}
     %link{rel: 'stylesheet', href: '/stylesheet.css'}
     -# FIXME: link-relation-snippet
   %body{id: "#{config[:site][:domain]}"}

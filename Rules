@@ -43,7 +43,7 @@ compile '/rss/' do
 end
 
 compile '*' do
-  return if item.binary?  # Don't filter binary items.
+  next if item.binary?  # Don't filter binary items.
 
   filter :kramdown,
     :input => 'GFM',

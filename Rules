@@ -43,6 +43,7 @@ compile '*' do
 
   filter :kramdown,
     :auto_ids => false,
+    :enable_coderay => false,
     :hard_wrap => false,
     :input => 'GFM' if item.written_in?('md')
   filter 'haml',

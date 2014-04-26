@@ -71,18 +71,14 @@ route '/' do
 end
 
 route '*' do
-  if item.binary?
-    # /foo/ => /foo.ext
-    item.identifier.chop + '.' + item[:extension]
-  else
-    if item.month_view?
-      # /YYYY/MM/ => /YYYY/MM/index.html
-      item.identifier + 'index.html'
-    else
-      # /foo/ => /foo.html
-      item.identifier.chop + '.html'
-    end
-  end
+  # /foo/ => /foo.ext
+  next item.identifier.chop + '.' + item[:extension] if item.binary?
+
+  # /YYYY/MM/ => /YYYY/MM/index.html
+  next item.identifier + 'index.html' if item.month_view?
+
+  # /foo/ => /foo.html
+  next item.identifier.chop + '.html'
 end
 
 layout '*', :haml, :format => :xhtml, :ugly => true

@@ -42,9 +42,9 @@ compile '*' do
   next if item.binary? or item.written_in?('css')
 
   filter :kramdown,
-    :input => 'GFM',
+    :auto_ids => false,
     :hard_wrap => false,
-    :auto_ids => false if item.written_in?('md')
+    :input => 'GFM' if item.written_in?('md')
   filter 'haml',
     :format => :xhtml,
     :ugly => true if item.written_in?('haml')

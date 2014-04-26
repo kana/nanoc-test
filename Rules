@@ -34,10 +34,6 @@ preprocess do
   end
 end
 
-compile '/stylesheet/' do
-  # don't filter or layout
-end
-
 compile '/rss/' do
   filter 'haml', :format => :xhtml, :ugly => true
 end
@@ -56,10 +52,6 @@ compile '*' do
   layout 'topic' if item.topic?
   layout 'month_view' if item.month_view?
   layout 'default'
-end
-
-route '/stylesheet/' do
-  '/style.css'
 end
 
 route '/rss/' do

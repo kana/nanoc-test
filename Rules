@@ -49,6 +49,7 @@ compile '*' do
   filter :haml,
     :format => :xhtml,
     :ugly => true if item.written_in?('haml')
+  filter :vim_highlighter
 
   layout 'topic' if item.topic?
   layout 'month_view' if item.month_view?
